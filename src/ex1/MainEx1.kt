@@ -3,14 +3,15 @@ package ex1
 import ex1.dataClass.Official
 import ex1.dataClass.Staff
 import ex1.dataClass.Teacher
-import ex1.interfaces.CheckValid.Companion.checkValidInt
+import ex1.interfaces.CheckValid
 import java.sql.Date
 import java.util.*
 
+object Check : CheckValid
 
 fun main() {
     val scanner = Scanner(System.`in`)
-    val n = checkValidInt(scanner, "Input quantity Office: ")
+    val n = Check.checkValidInt(scanner, "Input quantity Office: ")
     val listOfficial = mutableListOf<Official>()
 
     for (i in 1..n) {
