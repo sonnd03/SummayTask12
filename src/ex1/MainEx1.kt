@@ -3,28 +3,14 @@ package ex1
 import ex1.dataClass.Official
 import ex1.dataClass.Staff
 import ex1.dataClass.Teacher
-import ex1.interfaces.CheckValid
+import ex1.interfaces.CheckValid.Companion.checkValidInt
 import java.sql.Date
 import java.util.*
 
+
 fun main() {
     val scanner = Scanner(System.`in`)
-    var n = CheckValid.
-    while (true) {
-        print("Input quantity Office: ")
-        val input = scanner.nextLine()
-
-        try {
-            n = input.toInt()
-            if (n <= 0 || input.isNullOrBlank()) {
-                println("Please input n > 0 or not null: ")
-            } else {
-                break
-            }
-        } catch (e: NumberFormatException) {
-            println("Input type Int($e): ")
-        }
-    }
+    val n = checkValidInt(scanner, "Input quantity Office: ")
     val listOfficial = mutableListOf<Official>()
 
     for (i in 1..n) {
