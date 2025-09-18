@@ -1,3 +1,4 @@
+package ex1.target
 /* BÀI TOÁN
 * Xây dựng lớp VIENCHUC
 - Mỗi viên chức có các thuộc tính: Mã viên chức, Họ tên, Năm sinh,-HSL (Hệ số lương)-

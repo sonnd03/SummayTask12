@@ -1,17 +1,16 @@
 package ex1.interfaces
 
-import java.sql.Date
 import java.text.ParseException
-import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 interface CheckValid {
-    //    companion object{
     fun checkValidString(scanner: Scanner, message: String): String {
         while (true) {
             print(message)
             val input: String
-            val checkInput = scanner.nextLine().toString()
+            val checkInput = scanner.nextLine()
             input = checkInput
             if (input.isBlank()) {
                 println("Pleas input because it's not null!")
@@ -23,16 +22,15 @@ interface CheckValid {
         }
     }
 
-    fun checkValidDate(scanner: Scanner, message: String): Date {
-        val simpleDateFormat = SimpleDateFormat("dd/MM/yyyy")
-        var dateCheck: Date? = null
-        simpleDateFormat.isLenient = false
+    fun checkValidDate(scanner: Scanner, message: String): LocalDate {
+        val dateTimeFormatter = DateTimeFormatter.ofPattern("d/M/yyyy")
+        var dateCheck: LocalDate? = null
+
         while (dateCheck == null) {
             print("Input Year of Birth Official (dd/MM/yyyy): ")
             val inputDate = scanner.nextLine()
             try {
-                val parsed = simpleDateFormat.parse(inputDate)
-                dateCheck = Date(parsed.time)
+                dateCheck = LocalDate.parse(inputDate, dateTimeFormatter)
             } catch (e: ParseException) {
                 println("Format Error! Pleas return Input is format dd/MM/yyyy(message: $e): ")
             }
@@ -47,8 +45,6 @@ interface CheckValid {
             if (doubleCheck.isNullOrBlank()) {
                 println("Please ${message[0].lowercase() + message.substring(1)}")
                 continue
-            } else {
-                println()
             }
             try {
                 return doubleCheck.toDouble()
@@ -65,8 +61,6 @@ interface CheckValid {
             if (intCheck.isNullOrBlank()) {
                 println("Please ${message[0].lowercase() + message.substring(1)}")
                 continue
-            } else {
-                println()
             }
             try {
                 return intCheck.toInt()
@@ -75,6 +69,16 @@ interface CheckValid {
             }
         }
     }
-//    }
 
+    fun selectType(scanner: Scanner): String {
+        while (true) {
+            println("1: Staff or 2: Teacher")
+            print("Input type: ")
+            val type = scanner.nextLine()
+            when (type) {
+                "1", "2" -> return type
+                else -> println("Please input 1 or 2")
+            }
+        }
+    }
 }

@@ -1,44 +1,42 @@
 package ex1
 
 import ex1.dataClass.Official
-import ex1.dataClass.Staff
-import ex1.dataClass.Teacher
-import ex1.interfaces.CheckValid
-import java.sql.Date
+import ex1.extensions.StaffExtension
+import ex1.extensions.TeacherExtension
+import ex1.objects.Return
 import java.util.*
-
-object Check : CheckValid
 
 fun main() {
     val scanner = Scanner(System.`in`)
-    val n = Check.checkValidInt(scanner, "Input quantity Office: ")
+    val n = Return.checkValidInt(scanner, "Input quantity Office: ")
     val listOfficial = mutableListOf<Official>()
 
     for (i in 1..n) {
-        println("\nInput type Official is stt$i")
-        println("1: Staff or 2: Teacher")
-        val currentDate = Date(System.currentTimeMillis())
-        var type: String
-        do {
-            print("Chose type: ")
-            type = scanner.nextLine()
-            if (type != "1" && type != "2") {
-                println("Please input 1 or 2")
-            }
-        } while (type != "1" && type != "2")
-        when (type) {
-            "1" -> {
-                val staff = Staff("", "", currentDate, 0.0, "", 0.0)
-                staff.input(scanner)
-                listOfficial.add(staff)
-            }
-
-            "2" -> {
-                val teacher = Teacher("", "", currentDate, 0.0, "", "", 0)
-                teacher.input(scanner)
-                listOfficial.add(teacher)
-            }
-        }
+        println("\nInput type Official is stt: $i")
+        val type = Return.selectType(scanner)
+        val official = Return.createOfficial(type, scanner)
+        listOfficial.add(official)
     }
+
+    print("\nALL DATA:")
+    listOfficial.forEach { Return.getData(it) }
+
+    print("\nDump Data:")
+    val (listStaff, listTeacher) = Return.dumpData(listOfficial)
+    listStaff.forEach { Return.getData(it) }
+    listTeacher.forEach { Return.getData(it) }
+
+    val staffExtension = StaffExtension(listStaff)
+    val teacherExtension = TeacherExtension(listTeacher)
+
+    // lấy tên các người làm bảo vệ (security)
+    val getSecurity = staffExtension.staffSecurity()
+    getSecurity.forEach { println(it.nameOFC) }
+
+//    // lấy các người có năm sinh > 2000 , làm thủ quỹ (treasurer), có phụ cấp > 50000
+//    val getFilterStaff = staffExtension.getFilterStaff()
+//    getFilterStaff.forEach { println(it) }
+    staffExtension.staff.forEach { println(it.nameOFC) }
+
 
 }

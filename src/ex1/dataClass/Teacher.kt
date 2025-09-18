@@ -1,12 +1,12 @@
 package ex1.dataClass
 
-import java.sql.Date
+import java.time.LocalDate
 import java.util.*
 
 class Teacher(
     idOFC: String,
     nameOFC: String,
-    yearOfBirthOFC: Date,
+    yearOfBirthOFC: LocalDate,
     salaryOFC: Double,
     var subject: String,
     var level: String,
@@ -15,8 +15,8 @@ class Teacher(
     override fun input(scanner: Scanner) {
         super.input(scanner)
 
-        subject = checkValidString(scanner, "Input subject Ex1.Staff: ")
-        level = checkValidString(scanner, "Input level Ex1.Staff: ")
+        subject = checkValidString(scanner, "Input subject Staff: ")
+        level = checkValidString(scanner, "Input level Staff: ")
         experienced = checkValidInt(scanner, "Input experienced: ")
     }
 

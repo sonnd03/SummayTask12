@@ -1,13 +1,13 @@
 package ex1.dataClass
 
 import ex1.interfaces.CheckValid
-import java.sql.Date
-import java.util.Scanner
+import java.time.LocalDate
+import java.util.*
 
 open class Official(
-    protected var idOFC: String,
+    internal var idOFC: String,
     var nameOFC: String,
-    var yearOfBirthOFC: Date,
+    var yearOfBirthOFC: LocalDate,
     var salaryOFC: Double
 ) : CheckValid {
     companion object {
@@ -15,11 +15,15 @@ open class Official(
     }
 
     open fun input(scanner: Scanner) {
+        val tempName = checkValidString(scanner, "Input name Official: ")
+        val tempYear = checkValidDate(scanner, "Input year of birth: ")
+        val tempSalary = checkValidDouble(scanner, "Input salary Official: ")
+
         auto++
         idOFC = "OFC$auto"
-        nameOFC = checkValidString(scanner, "Input name Official: ")
-        yearOfBirthOFC = checkValidDate(scanner, "Input year of birth: ")
-        salaryOFC = checkValidDouble(scanner, "Input salary Official: ")
+        nameOFC = tempName
+        yearOfBirthOFC = tempYear
+        salaryOFC = tempSalary
     }
 
     open fun payment(): Double = 0.0

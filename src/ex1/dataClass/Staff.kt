@@ -1,19 +1,18 @@
 package ex1.dataClass
 
-import java.sql.Date
+import java.time.LocalDate
 import java.util.*
 
 class Staff(
     idOFC: String,
     nameOFC: String,
-    yearOfBirthOFC: Date,
+    yearOfBirthOFC: LocalDate,
     salaryOFC: Double,
     var title: String,
     var allowance: Double
 ) : Official(idOFC, nameOFC, yearOfBirthOFC, salaryOFC) {
     override fun input(scanner: Scanner) {
         super.input(scanner)
-
         title = checkValidString(scanner, "Input title Staff: ")
         allowance = checkValidDouble(scanner, "Input allowance: ")
     }
