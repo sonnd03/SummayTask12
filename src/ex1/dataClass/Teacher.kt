@@ -12,14 +12,6 @@ class Teacher(
     var level: String,
     var experienced: Int
 ) : Official(idOFC, nameOFC, yearOfBirthOFC, salaryOFC) {
-    override fun input(scanner: Scanner) {
-        super.input(scanner)
-
-        subject = checkValidString(scanner, "Input subject Staff: ")
-        level = checkValidString(scanner, "Input level Staff: ")
-        experienced = checkValidInt(scanner, "Input experienced: ")
-    }
-
     override fun payment(): Double {
         var sumSalary = salaryOFC * 2000000 * (130 + experienced)
         sumSalary += when (level.lowercase(Locale.getDefault())) {

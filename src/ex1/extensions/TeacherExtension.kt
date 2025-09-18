@@ -2,9 +2,12 @@ package ex1.extensions
 
 import ex1.dataClass.Teacher
 
-class TeacherExtension(var teacher: List<Teacher>) {
-    fun highestExperience(teachers: List<Teacher>): List<Teacher> {
-        val maxExp = teachers.maxOfOrNull { it.experienced } ?: return emptyList()
-        return teachers.filter { it.experienced == maxExp }
+class TeacherExtension(val teacher: List<Teacher>) {
+
+    fun highestExperience(): List<Teacher> {
+        val maxExp = teacher.maxOfOrNull { it.experienced } ?: return emptyList()
+        return teacher.filter { it.experienced == maxExp }
     }
+
+    fun
 }
