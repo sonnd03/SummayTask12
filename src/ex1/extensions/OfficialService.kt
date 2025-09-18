@@ -12,5 +12,4 @@ class OfficialService(listOfficial: List<Official>) : Service<Official>(listOffi
     override fun maxSalary() {
         listOfficial.maxOf { it.payment() }
     }
-
 }

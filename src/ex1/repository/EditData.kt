@@ -5,6 +5,7 @@ import ex1.enumClass.EnType
 import ex1.model.Official
 import ex1.model.Staff
 import ex1.model.Teacher
+import ex1.objects.Message
 import ex1.utils.Valid
 import java.util.*
 
@@ -24,14 +25,18 @@ object EditData {
         if (official != null) {
             println("=== Update information ID: $id ===")
             official.nameOFC = checkValid.checkValidString(scanner, inputOfficial.format(EnType.NAME.value, "Teacher"))
-            official.yearOfBirthOFC = checkValid.checkValidDate(scanner, inputOfficial.format(
-                EnType.YEAR.value,
-                "Teacher"
-            ))
-            official.salaryOFC = checkValid.checkValidDouble(scanner, inputOfficial.format(
-                EnType.SALARY.value,
-                "Teacher"
-            ))
+            official.yearOfBirthOFC = checkValid.checkValidDate(
+                scanner, inputOfficial.format(
+                    EnType.YEAR.value,
+                    "Teacher"
+                )
+            )
+            official.salaryOFC = checkValid.checkValidDouble(
+                scanner, inputOfficial.format(
+                    EnType.SALARY.value,
+                    "Teacher"
+                )
+            )
 
             listStaff.find { it.idOFC.equals(id, ignoreCase = true) }?.apply {
                 title = checkValid.checkValidString(scanner, inputStaff.format(EnType.TITLE.value, "Teacher"))
@@ -44,9 +49,9 @@ object EditData {
                 experienced = checkValid.checkValidInt(scanner, inputTeacher.format(EnType.EXPERIENCE.value, "Teacher"))
             }
 
-            println("Update success!")
+            println(Message.UPDATE_SUCCESS)
         } else {
-            println("Cannot find ID = $id to edit!")
+            println(Message.ID_NOT_FOUND)
         }
     }
 }

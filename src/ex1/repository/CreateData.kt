@@ -5,6 +5,7 @@ import ex1.enumClass.EnType
 import ex1.model.Official
 import ex1.model.Staff
 import ex1.model.Teacher
+import ex1.objects.Message
 import ex1.utils.Valid
 import java.util.*
 
@@ -21,7 +22,7 @@ object CreateData {
         do {
             id = checkValid.checkValidString(scanner, inputOfficial.format(EnType.ID.value))
             if (allIDSaved.contains(id)) {
-                println("Please intern id again because id exited!")
+                println(Message.ID_EXITED)
             }
         } while (allIDSaved.contains(id))
         allIDSaved.add(id)
@@ -43,15 +44,7 @@ object CreateData {
         val subject = checkValid.checkValidString(scanner, inputTeacher.format(EnType.SUBJECT.value))
         val level = checkValid.checkInputLevel(scanner)
         val experienced = checkValid.checkValidInt(scanner, inputTeacher.format(EnType.EXPERIENCE.value))
-        return Teacher(
-            official.idOFC,
-            official.nameOFC,
-            official.yearOfBirthOFC,
-            official.salaryOFC,
-            subject,
-            level,
-            experienced
-        )
+        return Teacher(official.idOFC, official.nameOFC, official.yearOfBirthOFC, official.salaryOFC, subject, level, experienced)
     }
 
     fun createOfficial(type: String, scanner: Scanner): Official {

@@ -2,7 +2,6 @@ package ex1.extensions
 
 import ex1.model.Teacher
 import ex1.objects.GetData
-import java.time.LocalDate
 
 class TeacherService(private val listTeacher: List<Teacher>) : Service<Teacher>(listTeacher) {
 

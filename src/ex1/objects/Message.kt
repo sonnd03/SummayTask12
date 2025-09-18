@@ -6,4 +6,7 @@ object Message {
     const val NOT_STRING = "Input must not contain numbers!"
     const val INPUT_DATE = "Input Year of Birth Official (dd/MM/yyyy): "
     const val FORMAT_DATE = "Format Error! Pleas return Input is format dd/MM/yyyy"
+    const val ID_EXITED = "Please intern id again because id exited!"
+    const val ID_NOT_FOUND = "Cannot find ID"
+    const val UPDATE_SUCCESS = "Update success!"
 }

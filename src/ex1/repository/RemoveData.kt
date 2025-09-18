@@ -3,6 +3,7 @@ package ex1.repository
 import ex1.model.Official
 import ex1.model.Staff
 import ex1.model.Teacher
+import ex1.objects.Message
 
 object RemoveData {
     fun deleteData(
@@ -10,7 +11,7 @@ object RemoveData {
         listOfficial: MutableList<Official>,
         listStaff: MutableList<Staff>,
         listTeacher: MutableList<Teacher>,
-        allIDSaved: MutableSet<String>
+        allIDSaved: MutableSet<String>,
     ) {
         if (allIDSaved.contains(id)) {
             listOfficial.removeIf { it.idOFC == id }
@@ -19,7 +20,7 @@ object RemoveData {
             allIDSaved.remove(id)
             println("Delete $id success!")
         } else {
-            println("ID $id not exit!")
+            println(Message.ID_NOT_FOUND)
         }
     }
 }
