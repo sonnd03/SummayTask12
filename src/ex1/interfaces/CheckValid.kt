@@ -1,5 +1,6 @@
 package ex1.interfaces
 
+import ex1.model.TypeLevel
 import java.time.LocalDate
 import java.util.*
 
@@ -11,4 +12,8 @@ interface CheckValid {
     fun checkValidDouble(scanner: Scanner, message: String): Double
 
     fun checkValidInt(scanner: Scanner, message: String): Int
+
+    fun selectType(scanner: Scanner, item1: String, item2: String): String
+
+    fun checkInputLevel(scanner: Scanner): TypeLevel
 }

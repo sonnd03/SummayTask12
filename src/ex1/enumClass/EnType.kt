@@ -1,4 +1,4 @@
-package ex1.enumMessage
+package ex1.enumClass
 
 enum class EnType(val value: String) {
     ID("id"),
@@ -7,6 +7,7 @@ enum class EnType(val value: String) {
     SALARY("salary"),
     TITLE("title"),
     ALLOWANCE("allowance"),
+    PAYMENT("payment"),
     SUBJECT("subject"),
     LEVEL("level"),
     EXPERIENCE("experience")

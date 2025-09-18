@@ -1,13 +1,15 @@
-package ex1.enumMessage
+package ex1.enumClass
 
 enum class EnInAndOut(val message: String) {
     INPUT_OFFICIAL("Input %s: "),
     INPUT_STAFF("Input %s Staff: "),
     INPUT_TEACHER("Input %s Teacher: "),
+    INPUT_TYPE("1: %s or 2: %s"),
 
     OUTPUT_OFFICIAL("Output %s is: "),
     OUTPUT_STAFF("Output %s Staff is: "),
     OUTPUT_TEACHER("Output %s Teacher is: ");
 
-    fun format(value: String): String = message.format(value)
+    //    fun format(vararg value: Any): String = message.format(value)
+    fun format(vararg value: Any): String = message.format(*value)
 }

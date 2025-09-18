@@ -1,6 +1,8 @@
 package ex1.utils
 
+import ex1.enumClass.EnInAndOut
 import ex1.interfaces.CheckValid
+import ex1.model.TypeLevel
 import ex1.objects.Message
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -15,7 +17,7 @@ class Valid : CheckValid {
             input = checkInput
             if (input.isBlank()) {
                 println(Message.NOT_NULL)
-            } else if (!input.matches(Regex("^[a-zA-Z ]+$"))) {
+            } else if (!input.matches(Regex("^[^0-9][a-zA-Z0-9 ]*$"))) {
                 println(Message.NOT_INT)
             } else {
                 return input
@@ -71,9 +73,9 @@ class Valid : CheckValid {
         }
     }
 
-    fun selectType(scanner: Scanner): String {
+    override fun selectType(scanner: Scanner, item1: String, item2: String): String {
         while (true) {
-            println("1: Staff or 2: Teacher")
+            println(EnInAndOut.INPUT_TYPE.format(item1, item2))
             print("Input type: ")
             val type = scanner.nextLine()
             when (type) {
@@ -82,4 +84,19 @@ class Valid : CheckValid {
             }
         }
     }
+
+    override fun checkInputLevel(scanner: Scanner): TypeLevel {
+        while (true) {
+            print("Enter level (1=Associate, 2=Bachelor, 3=Master, 4=Doctorate or Other): ")
+            val input = scanner.nextLine().trim()
+
+            val level = input.toIntOrNull()?.let { TypeLevel.fromNumber(it) }
+                ?: TypeLevel.fromString(input)
+
+            if (level != null) return level
+            println("Invalid input. Try again!")
+        }
+    }
+
+
 }

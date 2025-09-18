@@ -1,4 +1,4 @@
-package ex1.dataClass
+package ex1.model
 
 import java.time.LocalDate
 
@@ -9,4 +9,5 @@ open class Official(
     var salaryOFC: Double
 ) {
     open fun payment(): Double = 0.0
+
 }

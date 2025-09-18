@@ -1,35 +1,30 @@
-package ex1.objects
+package ex1.repository
 
-import ex1.dataClass.Official
-import ex1.dataClass.Staff
-import ex1.dataClass.Teacher
-import ex1.enumMessage.EnInAndOut
-import ex1.enumMessage.EnType
+import ex1.enumClass.EnInAndOut
+import ex1.enumClass.EnType
+import ex1.model.Official
+import ex1.model.Staff
+import ex1.model.Teacher
 import ex1.utils.Valid
 import java.util.*
 
-//data class EnumInputs(
-//    val inputOfficial: EnumInput,
-//    val inputStaff: EnumInput,
-//    val inputTeacher: EnumInput
-//)
-//
-//fun getInput() = EnumInputs(
-//    inputTeacher = EnumInput.INPUT_TEACHER,
-//    inputStaff = EnumInput.INPUT_STAFF,
-//    inputOfficial = EnumInput.INPUT_OFFICIAL
-//)
-
 object CreateData {
     val checkValid = Valid()
-
-    //    val input = getInput()
     val inputOfficial = EnInAndOut.INPUT_OFFICIAL
     val inputStaff = EnInAndOut.INPUT_STAFF
     val inputTeacher = EnInAndOut.INPUT_TEACHER
 
+    var allIDSaved = mutableSetOf<String>()
+
     fun createOfficial(scanner: Scanner): Official {
-        val id = checkValid.checkValidString(scanner, inputOfficial.format(EnType.NAME.value))
+        var id: String
+        do {
+            id = checkValid.checkValidString(scanner, inputOfficial.format(EnType.ID.value))
+            if (allIDSaved.contains(id)) {
+                println("Please intern id again because id exited!")
+            }
+        } while (allIDSaved.contains(id))
+        allIDSaved.add(id)
         val name = checkValid.checkValidString(scanner, inputOfficial.format(EnType.NAME.value))
         val year = checkValid.checkValidDate(scanner, inputOfficial.format(EnType.YEAR.value))
         val salary = checkValid.checkValidDouble(scanner, inputOfficial.format(EnType.SALARY.value))
@@ -46,7 +41,7 @@ object CreateData {
     fun createTeacher(scanner: Scanner): Teacher {
         val official = createOfficial(scanner)
         val subject = checkValid.checkValidString(scanner, inputTeacher.format(EnType.SUBJECT.value))
-        val level = checkValid.checkValidString(scanner, inputTeacher.format(EnType.LEVEL.value))
+        val level = checkValid.checkInputLevel(scanner)
         val experienced = checkValid.checkValidInt(scanner, inputTeacher.format(EnType.EXPERIENCE.value))
         return Teacher(
             official.idOFC,
