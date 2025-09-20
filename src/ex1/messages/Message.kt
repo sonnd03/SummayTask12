@@ -1,4 +1,4 @@
-package ex1.objects
+package ex1.messages
 
 object Message {
     const val NOT_NULL = "Pleas input because it's not null!"

@@ -1,11 +1,11 @@
-package ex1.repository
+package ex1.service.factory
 
 import ex1.enumClass.EnInAndOut
 import ex1.enumClass.EnType
 import ex1.model.Official
 import ex1.model.Staff
 import ex1.model.Teacher
-import ex1.objects.Message
+import ex1.messages.Message
 import ex1.utils.Valid
 import java.util.*
 

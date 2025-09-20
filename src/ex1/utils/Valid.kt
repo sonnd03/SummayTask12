@@ -3,7 +3,7 @@ package ex1.utils
 import ex1.enumClass.EnInAndOut
 import ex1.interfaces.CheckValid
 import ex1.model.TypeLevel
-import ex1.objects.Message
+import ex1.messages.Message
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 import java.util.*

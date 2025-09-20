@@ -1,19 +1,23 @@
 package ex1
 
 import ex1.enumClass.EnInAndOut
-import ex1.extensions.OfficialService
-import ex1.extensions.OptionHandler
-import ex1.extensions.StaffService
-import ex1.extensions.TeacherService
 import ex1.interfaces.CheckValid
+import ex1.messages.GetData
 import ex1.model.Official
-import ex1.objects.GetData
-import ex1.repository.CreateData
+import ex1.repository.staff.StaffRepository
+import ex1.repository.teacher.TeacherRepository
+import ex1.service.factory.InputFactory
+import ex1.service.official.OfficialService
+import ex1.service.staff.StaffBusinessService
+import ex1.service.staff.StaffServiceImpl
+import ex1.service.teacher.TeacherServiceImpl
+import ex1.utils.OptionHandler
 import ex1.utils.Valid
 import java.util.*
 
 fun main() {
     val checkValid: CheckValid = Valid()
+    val officialService = OfficialService()
 
     val scanner = Scanner(System.`in`)
     val n = checkValid.checkValidInt(scanner, EnInAndOut.INPUT_OFFICIAL.format("quantity"))
@@ -22,17 +26,19 @@ fun main() {
     for (i in 1..n) {
         println("\nInput type Official is stt: $i")
         val type = checkValid.selectType(scanner, "Staff", "Teacher")
-        val official = CreateData.createOfficial(type, scanner)
+
+        val official = InputFactory.createOfficial(type, scanner)
         listOfficial.add(official)
     }
-
     val (listStaff, listTeacher) = GetData.dumpData(listOfficial)
 
-    val officialService = OfficialService(listOfficial)
-    val staffService = StaffService(listStaff)
-    val teacherService = TeacherService(listTeacher)
+    val staffRepository = StaffRepository(listStaff)
+    val teacherRepository = TeacherRepository(listTeacher)
 
-    officialService.getAllData()
+    val staffService = StaffServiceImpl(staffRepository)
+    val teacherService = TeacherServiceImpl(teacherRepository)
+
+    officialService.getAll()
 
     staffService.getAllData()
     staffService.printStaffSecurity()
@@ -50,7 +56,7 @@ fun main() {
     println("Do you want choose option ?")
     val typeOption = checkValid.selectType(scanner, "Update", "Delete")
     OptionHandler.startOption(typeOption, scanner, listOfficial, listStaff, listTeacher)
-    officialService.getAllData()
+    officialService.getAll()
 }
 
 

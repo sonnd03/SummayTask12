@@ -18,6 +18,6 @@ enum class TypeLevel(val type: String, val bonus: Int) {
         }
 
         fun fromString(value: String): TypeLevel? =
-            TypeLevel.entries.firstOrNull { it.type.equals(value, ignoreCase = true) }
+            TypeLevel.entries.firstOrNull { it.type.trim().equals(value, ignoreCase = true) }
     }
 }

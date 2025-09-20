@@ -1,4 +1,4 @@
-package ex1.objects
+package ex1.messages
 
 import ex1.enumClass.EnInAndOut
 import ex1.enumClass.EnType
