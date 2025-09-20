@@ -2,13 +2,13 @@ package ex1.utils
 
 import ex1.enumClass.EnInAndOut
 import ex1.enumClass.EnType
-import ex1.model.Official
-import ex1.model.Staff
-import ex1.model.Teacher
-import ex1.service.CreateData
-import ex1.service.factory.EditData
-import ex1.service.factory.RemoveData
-import java.util.Scanner
+import ex1.model.person.Official
+import ex1.model.person.Staff
+import ex1.model.person.Teacher
+import ex1.viewModel.person.CreateData
+import ex1.viewModel.person.EditData
+import ex1.viewModel.person.RemoveData
+import java.util.*
 
 object OptionHandler {
     val checkValid = Valid()

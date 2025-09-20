@@ -1,8 +1,8 @@
 package ex1.service.teacher
 
-import ex1.model.Teacher
 import ex1.messages.GetData
-import ex1.repository.teacher.TeacherRepository
+import ex1.model.person.Teacher
+import ex1.repository.person.TeacherRepository
 
 class TeacherServiceImpl(private val teacherRepository: TeacherRepository) : TeacherBusinessService {
     val dataTeacher = teacherRepository.getAll()

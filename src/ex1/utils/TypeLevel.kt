@@ -1,4 +1,4 @@
-package ex1.model
+package ex1.utils
 
 enum class TypeLevel(val type: String, val bonus: Int) {
     ASSOCIATE("Associate", 500000),

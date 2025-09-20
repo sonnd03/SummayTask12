@@ -1,21 +1,21 @@
-package ex1.service.factory
+package ex1.viewModel.person
 
 import ex1.enumClass.EnInAndOut
 import ex1.enumClass.EnType
 import ex1.interfaces.CheckValid
 import ex1.messages.Message
-import ex1.model.Official
-import ex1.model.Staff
-import ex1.model.Teacher
+import ex1.model.person.Official
+import ex1.model.person.Staff
+import ex1.model.person.Teacher
 import ex1.utils.Valid
 import java.util.*
 
-object InputFactory {
+object CreateData {
     private val checkValid: CheckValid = Valid()
     val inputOfficial = EnInAndOut.INPUT_OFFICIAL
     val inputStaff = EnInAndOut.INPUT_STAFF
     val inputTeacher = EnInAndOut.INPUT_TEACHER
-    private val allIDSaved = mutableSetOf<String>()
+    val allIDSaved = mutableSetOf<String>()
 
     fun createOfficial(scanner: Scanner): Official {
         var id: String

@@ -2,9 +2,9 @@ package ex1.messages
 
 import ex1.enumClass.EnInAndOut
 import ex1.enumClass.EnType
-import ex1.model.Official
-import ex1.model.Staff
-import ex1.model.Teacher
+import ex1.model.person.Official
+import ex1.model.person.Staff
+import ex1.model.person.Teacher
 
 object GetData {
     fun getData(official: Official) {

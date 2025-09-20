@@ -1,16 +1,16 @@
 package ex1.service.official
 
 import ex1.messages.Message
-import ex1.model.Official
+import ex1.model.person.Official
 import ex1.service.Service
-import ex1.service.factory.InputFactory
+import ex1.viewModel.person.CreateData
 import java.util.Scanner
 
 class OfficialService : Service<Official> {
     private val data = mutableListOf<Official>()
 
     override fun create(scanner: Scanner) : Official {
-        val official = InputFactory.createOfficial(scanner)
+        val official = CreateData.createOfficial(scanner)
         data.add(official)
         return official
     }

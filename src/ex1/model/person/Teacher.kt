@@ -1,19 +1,22 @@
-package ex1.model
+package ex1.model.person
 
+import ex1.utils.TypeLevel
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.time.LocalDate
 
-class Staff(
+class Teacher(
     idOFC: String,
     nameOFC: String,
     yearOfBirthOFC: LocalDate,
     salaryOFC: Double,
-    var title: String,
-    var allowance: Double,
+    var subject: String,
+    var level: TypeLevel,
+    var experienced: Int,
 ) : Official(idOFC, nameOFC, yearOfBirthOFC, salaryOFC) {
     override fun payment(): Double {
-        val sumPayment = salaryOFC * 1000000 + allowance
+        var sumPayment = salaryOFC * 2000000 * (130 + experienced)
+        sumPayment += level.bonus
         return BigDecimal(sumPayment).setScale(3, RoundingMode.HALF_UP).toDouble()
     }
 }

@@ -1,9 +1,9 @@
-package ex1.service.factory
+package ex1.viewModel.person
 
 import ex1.messages.Message
-import ex1.model.Official
-import ex1.model.Staff
-import ex1.model.Teacher
+import ex1.model.person.Official
+import ex1.model.person.Staff
+import ex1.model.person.Teacher
 
 object RemoveData {
     fun deleteData(

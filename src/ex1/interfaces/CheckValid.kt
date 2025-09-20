@@ -1,6 +1,6 @@
 package ex1.interfaces
 
-import ex1.model.TypeLevel
+import ex1.utils.TypeLevel
 import java.time.LocalDate
 import java.util.*
 

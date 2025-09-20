@@ -1,6 +1,7 @@
-package ex1.repository.teacher
+package ex1.repository.person
 
-import ex1.model.Teacher
+import ex1.model.person.Teacher
+
 import ex1.repository.Repository
 
 class TeacherRepository(dataTeacher: MutableList<Teacher>) : Repository<Teacher>(dataTeacher) {

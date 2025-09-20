@@ -1,6 +1,6 @@
 package ex1.service.teacher
 
-import ex1.model.Teacher
+import ex1.model.person.Teacher
 
 interface TeacherBusinessService {
     fun highestExperience(): List<Teacher>

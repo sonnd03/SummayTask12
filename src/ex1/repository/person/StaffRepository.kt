@@ -1,6 +1,6 @@
-package ex1.repository.staff
+package ex1.repository.person
 
-import ex1.model.Staff
+import ex1.model.person.Staff
 import ex1.repository.Repository
 
 class StaffRepository(dataStaff: MutableList<Staff>) : Repository<Staff>(dataStaff) {

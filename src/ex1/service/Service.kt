@@ -1,6 +1,6 @@
 package ex1.service
 
-import java.util.Scanner
+import java.util.*
 
 interface Service<T> {
     fun create(scanner: Scanner): T

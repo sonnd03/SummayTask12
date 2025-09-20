@@ -1,7 +1,6 @@
-package ex1.repository.official
-
+package ex1.repository.person
 import ex1.enumClass.EnInAndOut
-import ex1.model.Official
+import ex1.model.person.Official
 import ex1.repository.Repository
 import ex1.utils.Valid
 
