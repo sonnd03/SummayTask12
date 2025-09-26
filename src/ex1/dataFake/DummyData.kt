@@ -5,8 +5,6 @@ import ex1.model.oders.Food
 import ex1.model.oders.Order
 import ex1.model.person.Staff
 import ex1.model.person.Teacher
-import ex1.repository.oder.OderRepository
-import ex1.service.oder.OrderService
 import ex1.utils.TypeLevel
 import java.time.LocalDate
 import kotlin.random.Random

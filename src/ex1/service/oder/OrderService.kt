@@ -9,7 +9,7 @@ class OrderService(private val oderRepository: OderRepository) {
     }
 
     fun getAllOrders(): List<Order> {
-        return oderRepository.getAll()
+        return oderRepository.getAllOder()
     }
 
     fun findById(id: Int): Order? {

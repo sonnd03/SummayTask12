@@ -6,7 +6,7 @@ import ex1.model.person.Official
 import ex1.model.person.Staff
 import ex1.model.person.Teacher
 
-object GetData {
+class GetData {
     fun getData(official: Official) {
         println("\n${EnInAndOut.OUTPUT_OFFICIAL.format(EnType.ID.value)}${official.idOFC}")
         println(EnInAndOut.OUTPUT_OFFICIAL.format(EnType.NAME.value) + official.nameOFC)

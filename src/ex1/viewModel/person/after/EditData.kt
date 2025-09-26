@@ -1,4 +1,4 @@
-package ex1.viewModel.person
+package ex1.viewModel.person.after
 
 import ex1.enumClass.EnInAndOut
 import ex1.enumClass.EnType
@@ -25,12 +25,7 @@ object EditData {
         if (official != null) {
             println("=== Update information ID: $id ===")
             official.nameOFC = checkValid.checkValidString(scanner, inputOfficial.format(EnType.NAME.value, "Teacher"))
-            official.yearOfBirthOFC = checkValid.checkValidDate(
-                scanner, inputOfficial.format(
-                    EnType.YEAR.value,
-                    "Teacher"
-                )
-            )
+            official.yearOfBirthOFC = checkValid.checkValidDate(scanner, inputOfficial.format(EnType.YEAR.value, "Teacher"))
             official.salaryOFC = checkValid.checkValidDouble(
                 scanner, inputOfficial.format(
                     EnType.SALARY.value,

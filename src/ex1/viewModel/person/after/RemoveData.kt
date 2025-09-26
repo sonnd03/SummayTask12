@@ -1,4 +1,4 @@
-package ex1.viewModel.person
+package ex1.viewModel.person.after
 
 import ex1.messages.Message
 import ex1.model.person.Official

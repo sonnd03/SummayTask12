@@ -3,7 +3,7 @@ package ex1.service.official
 import ex1.messages.Message
 import ex1.model.person.Official
 import ex1.service.Service
-import ex1.viewModel.person.CreateData
+import ex1.viewModel.person.after.CreateData
 import java.util.Scanner
 
 class OfficialService : Service<Official> {

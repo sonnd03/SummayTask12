@@ -3,7 +3,7 @@ package ex1.service.teacher
 import ex1.messages.Message
 import ex1.model.person.Teacher
 import ex1.service.Service
-import ex1.viewModel.person.CreateData
+import ex1.viewModel.person.after.CreateData
 import java.util.*
 
 class TeacherService : Service<Teacher> {

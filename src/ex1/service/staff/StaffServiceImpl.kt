@@ -1,7 +1,7 @@
 package ex1.service.staff
 
 import ex1.model.person.Staff
-import ex1.repository.person.StaffRepository
+import ex1.repository.person.staff.StaffRepository
 import java.time.LocalDate
 
 class StaffServiceImpl(private val staffRepository: StaffRepository) : StaffBusinessService {

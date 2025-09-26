@@ -1,4 +1,4 @@
-package ex1.viewModel.person
+package ex1.viewModel.person.after
 
 import ex1.enumClass.EnInAndOut
 import ex1.enumClass.EnType
@@ -11,7 +11,7 @@ import ex1.utils.Valid
 import java.util.*
 
 object CreateData {
-    private val checkValid: CheckValid = Valid()
+    val checkValid: CheckValid = Valid()
     val inputOfficial = EnInAndOut.INPUT_OFFICIAL
     val inputStaff = EnInAndOut.INPUT_STAFF
     val inputTeacher = EnInAndOut.INPUT_TEACHER

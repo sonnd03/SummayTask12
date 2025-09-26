@@ -3,7 +3,7 @@ package ex1.service.staff
 import ex1.messages.Message
 import ex1.model.person.Staff
 import ex1.service.Service
-import ex1.viewModel.person.CreateData
+import ex1.viewModel.person.after.CreateData
 import java.util.Scanner
 
 class StaffService : Service<Staff> {

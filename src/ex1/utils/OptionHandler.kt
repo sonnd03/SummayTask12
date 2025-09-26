@@ -5,9 +5,9 @@ import ex1.enumClass.EnType
 import ex1.model.person.Official
 import ex1.model.person.Staff
 import ex1.model.person.Teacher
-import ex1.viewModel.person.CreateData
-import ex1.viewModel.person.EditData
-import ex1.viewModel.person.RemoveData
+import ex1.viewModel.person.after.CreateData
+import ex1.viewModel.person.after.EditData
+import ex1.viewModel.person.after.RemoveData
 import java.util.*
 
 object OptionHandler {
