@@ -125,6 +125,7 @@ Main Menu
           v           v
 +-----------------------------+     +-------------------------+
 | Staff Services Menu         |     | Teacher Services Menu   |
+|-----------------------------|     |-------------------------|
 | 0. MaxSalary                |     | 0. Highest Experience   |
 | 1. Staff is Security        |     | 1. MaxSalary            |
 | 2. Year >2000 & Allow.>5000|     | 2. GroupByLevel         |
@@ -134,5 +135,6 @@ Main Menu
 | 6. Get All Staff            |     +-------------------------+
 | 7. Back Main Menu           |
 +-----------------------------+
+
 
 3. Hệ thống sẽ kiểm tra dữ liệu nhập hợp lệ và cảnh báo khi nhập sai.
