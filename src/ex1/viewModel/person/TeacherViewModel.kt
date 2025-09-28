@@ -12,8 +12,8 @@ class TeacherViewModel(
 
     ) {
     fun createTeacher(): Teacher {
-        val teacherInput = handler.createTeacher()
         val official = officialViewModel.createOfficial()
+        val teacherInput = handler.createTeacher()
         val teacher = Teacher(
             official.idOFC,
             official.nameOFC,
@@ -46,7 +46,7 @@ class TeacherViewModel(
         return teacherRepository.deleteTeacher(id)
     }
 
-    fun getAllTeacher(): List<Teacher> = teacherRepository.getAllTeacher()
+    fun getAllTeacher(): List<Teacher> = teacherRepository.getAll()
 
     fun findBySubjectTeacher(title: String?): Boolean = teacherRepository.findBySubject(title)
 }

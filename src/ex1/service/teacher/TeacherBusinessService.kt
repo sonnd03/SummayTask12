@@ -1,12 +1,11 @@
 package ex1.service.teacher
 
 import ex1.model.person.Teacher
+import java.util.Scanner
 
 interface TeacherBusinessService {
     fun highestExperience(): List<Teacher>
-    fun getAllData()
     fun maxSalary()
-    fun groupByLevel(): Map<String, List<Teacher>>
-    fun printGroupedByLevel()
-    fun advancedFilter(subject: String? = null, minPayment: Double? = null, level: String? = null): List<Teacher>
+    fun groupByLevel()
+    fun advancedFilter(scanner: Scanner): List<Teacher>
 }

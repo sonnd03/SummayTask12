@@ -1,11 +1,12 @@
 package ex1.service.staff
 
+import java.util.Scanner
+
 interface StaffBusinessService {
-    fun getAllData()
     fun maxSalary()
-    fun printStaffSecurity()
+    fun getStaffSecurity()
     fun getFilterStaff()
-    fun printTop3Payment(n: Int)
-    fun printStaffByAge(startAge: Int, endAge: Int)
-    fun printStaffGroupedByTitle(inputTitle: String? = null)
+    fun getTop3Payment()
+    fun getStaffByAge(scanner: Scanner)
+    fun getStaffGroupedByTitle(scanner: Scanner)
 }

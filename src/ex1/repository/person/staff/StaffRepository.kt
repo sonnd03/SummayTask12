@@ -1,5 +1,6 @@
 package ex1.repository.person.staff
 
+import ex1.messages.Message
 import ex1.model.person.Staff
 import ex1.repository.person.RepositoryPerson
 
@@ -14,6 +15,7 @@ class StaffRepository(private val dataStaffs: MutableList<Staff>) : RepositoryPe
         val index = dataStaffs.indexOfFirst { it.idOFC == staff.idOFC }
         return if (index != -1) {
             dataStaffs[index] = staff
+            print(Message.UPDATE_SUCCESS)
             true
         } else {
             false
@@ -31,7 +33,7 @@ class StaffRepository(private val dataStaffs: MutableList<Staff>) : RepositoryPe
         }
     }
 
-    fun getAllStaff(): List<Staff> = dataStaffs
+    override fun getAll(): List<Staff> = dataStaffs
 
     fun findByIdStaff(id: String): Staff? = dataStaffs.find { it.idOFC == id }
 

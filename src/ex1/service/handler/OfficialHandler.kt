@@ -2,7 +2,7 @@ package ex1.service.handler
 
 import ex1.enumClass.EnInAndOut
 import ex1.enumClass.EnType
-import ex1.interfaces.CheckValid
+import ex1.utils.CheckValid
 import ex1.messages.Message
 import ex1.repository.person.RepositoryPerson
 import ex1.request.OfficialInput

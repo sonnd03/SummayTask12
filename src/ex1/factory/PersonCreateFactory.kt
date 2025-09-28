@@ -1,7 +1,6 @@
 package ex1.factory
 
 import ex1.enumClass.EnInAndOut
-import ex1.interfaces.CheckValid
 import ex1.messages.GetData
 import ex1.messages.Message
 import ex1.model.person.Official
@@ -11,6 +10,9 @@ import ex1.repository.person.teacher.TeacherRepository
 import ex1.service.handler.OfficialHandler
 import ex1.service.handler.StaffHandler
 import ex1.service.handler.TeacherHandler
+import ex1.service.staff.StaffServiceImpl
+import ex1.service.teacher.TeacherServiceImpl
+import ex1.utils.CheckValid
 import ex1.utils.Valid
 import ex1.viewModel.person.OfficialViewModel
 import ex1.viewModel.person.StaffViewModel
@@ -21,6 +23,7 @@ class PersonCreateFactory(private val scanner: Scanner) {
     private val checkValid: CheckValid = Valid()
     val getData = GetData()
 
+
     private val staffRepository = StaffRepository(mutableListOf())
     private val officialRepository = OfficialRepository(mutableListOf())
     private val teacherRepository = TeacherRepository(mutableListOf())
@@ -30,6 +33,9 @@ class PersonCreateFactory(private val scanner: Scanner) {
     private val officialMode = OfficialViewModel(officialRepository, officialHandler)
     private val staffViewModel = StaffViewModel(staffRepository, staffHandler, officialMode)
     private val teacherViewModel = TeacherViewModel(teacherRepository, teacherHandler, officialMode)
+
+    val serviceStaff = StaffServiceImpl(staffRepository)
+    val serviceTeacher = TeacherServiceImpl(teacherRepository)
 
     fun createPersons(): List<Official> {
         println()
@@ -54,34 +60,44 @@ class PersonCreateFactory(private val scanner: Scanner) {
     }
 
     fun deletePerson() {
-        val type = checkValid.selectType(scanner, "Delete Staff", "Delete Teacher")
-        print("Input id: ")
-        val id = scanner.nextLine()
-        when (type) {
-            "1" -> staffViewModel.deleteStaff(id)
-                .also { if (it) println("Delete success") else println("Delete Fail") }
+        if (ensureHasPersons()) {
+            val type = checkValid.selectType(scanner, "Delete Staff", "Delete Teacher")
+            print("Input id: ")
+            val id = scanner.nextLine()
+            when (type) {
+                "1" -> staffViewModel.deleteStaff(id)
+                    .also { if (it) println("Delete success Staff has id: $id") else println("Delete Fail") }
 
-            "2" -> teacherViewModel.deleteTeacher(id)
-                .also { if (it) println("Delete success") else println("Delete Fail") }
+                "2" -> teacherViewModel.deleteTeacher(id)
+                    .also { if (it) println("Delete success Teacher has id: $id") else println("Delete Fail") }
+            }
+        } else {
+            return
         }
     }
 
-    fun getDataStaff() = staffViewModel.getAllStaff().forEach { getData.getData(it) }
-
     fun updatePerson() {
-        if (getAllPersons().isEmpty()) {
-            println(Message.NOT_PERSON)
+        if (ensureHasPersons()) {
+            val type = checkValid.selectType(scanner, "Update Staff", "Update Teacher")
+            when (type) {
+                "1" -> staffViewModel.updateStaff()
+                "2" -> teacherViewModel.updateTeacher()
+            }
+        } else {
             return
-        }
-        val type = checkValid.selectType(scanner, "Update Staff", "Update Teacher")
-        when (type) {
-            "1" -> staffViewModel.updateStaff()
-            "2" -> teacherViewModel.updateTeacher()
         }
     }
 
     fun getAllPersons(): List<Official> {
-        return staffRepository.getAll() + teacherRepository.getAll()
+        return staffViewModel.getAllStaff() + teacherViewModel.getAllTeacher()
+    }
+
+    fun ensureHasPersons(): Boolean {
+        if (officialRepository.getAllOfficial().isEmpty()) {
+            println(Message.NOT_PERSON)
+            return false
+        }
+        return true
     }
 
 }

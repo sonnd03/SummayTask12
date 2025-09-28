@@ -9,5 +9,5 @@ object Message {
     const val ID_EXITED = "Please intern id again because id exited!"
     const val ID_NOT_FOUND = "Cannot find ID"
     const val UPDATE_SUCCESS = "Update success!"
-    const val NOT_PERSON = "No persons available to update!"
+    const val NOT_PERSON = "No persons available!\nPlease choice again!"
 }

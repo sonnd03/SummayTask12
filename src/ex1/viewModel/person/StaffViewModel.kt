@@ -45,7 +45,7 @@ class StaffViewModel(
         return staffRepository.deleteStaff(id)
     }
 
-    fun getAllStaff() = staffRepository.getAllStaff()
+    fun getAllStaff() = staffRepository.getAll()
 
     fun findByIdStaff(id: String): Official? = staffRepository.findByIdStaff(id)
 }

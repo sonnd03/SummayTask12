@@ -1,7 +1,7 @@
 package ex1.utils
 
 import ex1.enumClass.EnInAndOut
-import ex1.interfaces.CheckValid
+import ex1.utils.CheckValid
 import ex1.utils.TypeLevel
 import ex1.messages.Message
 import java.time.LocalDate

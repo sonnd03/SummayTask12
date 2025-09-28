@@ -1,8 +1,7 @@
-package ex1.interfaces
+package ex1.utils
 
-import ex1.utils.TypeLevel
 import java.time.LocalDate
-import java.util.*
+import java.util.Scanner
 
 interface CheckValid {
     fun checkValidString(scanner: Scanner, message: String): String

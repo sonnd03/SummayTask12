@@ -1,5 +1,6 @@
 package ex1.repository.person.teacher
 
+import ex1.messages.Message
 import ex1.model.person.Teacher
 import ex1.repository.person.RepositoryPerson
 
@@ -14,6 +15,7 @@ class TeacherRepository(private val dataTeachers: MutableList<Teacher>) : Reposi
         val index = dataTeachers.indexOfFirst { it.idOFC == teacher.idOFC }
         return if (index != -1) {
             dataTeachers[index] = teacher
+            print(Message.UPDATE_SUCCESS)
             true
         } else {
             false
@@ -31,6 +33,7 @@ class TeacherRepository(private val dataTeachers: MutableList<Teacher>) : Reposi
         }
     }
 
+    override fun getAll(): List<Teacher> = dataTeachers
     fun getAllTeacher(): List<Teacher> = dataTeachers
 
     fun findBySubject(title: String?): Boolean =
