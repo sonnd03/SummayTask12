@@ -67,40 +67,6 @@ Chương trình mô phỏng hệ thống quản lý nhân sự và hóa đơn, b
 ## Hướng dẫn sử dụng
 1. Chạy chương trình chính (`Main.kt`).  
 2. Menu chính:  
-Main Menu
-
-0. Create Persons                   
-1. Get All Persons                  
-2. Delete Persons                   
-3. Update Persons                   
-4. Service Persons                  
-5. Create Order                     
-6. Fake Data                        
-7. Get All Order                     
-8. Exit                             
-+-------------------------------------+
-          |
-          v
-+-------------------------+
-| Service Persons Menu    |
-| 0. Staff Services       |
-| 1. Teacher Services     |
-| 2. Back to Main Menu    |
-+-------------------------+
-          |           |
-          v           v
-+-----------------------------+     +-------------------------+
-| Staff Services Menu         |     | Teacher Services Menu   |
-|-----------------------------|     |-------------------------|
-| 0. MaxSalary                |     | 0. Highest Experience   |
-| 1. Staff is Security        |     | 1. MaxSalary            |
-| 2. Year >2000 & Allow.>5000|     | 2. GroupByLevel         |
-| 3. Top 3 Payment            |     | 3. Filter Advanced      |
-| 4. Staffs of same age       |     | 4. Get All Teacher      |
-| 5. Group by title           |     | 5. Back to Main Menu    |
-| 6. Get All Staff            |     +-------------------------+
-| 7. Back Main Menu           |
-+-----------------------------+
-
-
+- Lựa chọn các tùy chỉnh
+- Tùy chỉnh số 4 sẽ có nhiều tuy chỉnh bên trong nữa
 3. Hệ thống sẽ kiểm tra dữ liệu nhập hợp lệ và cảnh báo khi nhập sai.
