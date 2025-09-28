@@ -32,40 +32,6 @@ Chương trình mô phỏng hệ thống quản lý nhân sự và hóa đơn, b
 - `Food` và `Drink`: các món ăn và đồ uống trong hóa đơn  
   **Thuộc tính:** `nameFood`/`nameDrink`, `priceFood`/`priceDrink`
 
-### 3. Sơ đồ
-/*
-+-------------------+       +-------------------+       +-------------------+
-|     Official      |<------|       Staff       |       |      Teacher      |
-|-------------------|       |-------------------|       |-------------------|
-| idOFC : String    |       | title : String    |       | major : String    |
-| nameOFC : String  |       | allowance : Double|       | level : TypeLevel |
-| yearOfBirthOFC    |       +-------------------+       | bonus : Int       |
-| salaryOFC : Double|                                   +-------------------+
-+-------------------+
-
-          |
-          v
-+-------------------+
-|      Order        |
-|-------------------|
-| id : Int          |
-| person : Official |
-| food : Food       |
-| drink : Drink     |
-| date : LocalDate  |
-| price : Double    |
-+-------------------+
-
-          |
-          v
-+-------------------+       +--------------------+
-|       Food        |       |       Drink        |
-|-------------------|       |--------------------|
-| nameFood : String |       | nameDrink : String |
-| priceFood : Double|       | priceDrink : Double|
-+-------------------+       +--------------------+
-*/
-
 ---
 
 ## Chức năng chính
@@ -102,16 +68,16 @@ Chương trình mô phỏng hệ thống quản lý nhân sự và hóa đơn, b
 1. Chạy chương trình chính (`Main.kt`).  
 2. Menu chính:  
 Main Menu
-+-------------------------------------+
-| 0. Create Persons                   |
-| 1. Get All Persons                  |
-| 2. Delete Persons                   |
-| 3. Update Persons                   |
-| 4. Service Persons                  |
-| 5. Create Order                     |
-| 6. Fake Data                        |
-| 7. Get All Order                     |
-| 8. Exit                             |
+
+0. Create Persons                   
+1. Get All Persons                  
+2. Delete Persons                   
+3. Update Persons                   
+4. Service Persons                  
+5. Create Order                     
+6. Fake Data                        
+7. Get All Order                     
+8. Exit                             
 +-------------------------------------+
           |
           v
