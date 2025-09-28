@@ -4,25 +4,23 @@ import ex1.messages.Message
 import ex1.model.person.Official
 import ex1.repository.person.RepositoryPerson
 
-class OfficialRepository(private val dataOfficials: MutableList<Official>) : RepositoryPerson<Official>(dataOfficials) {
+class OfficialRepository(
+    private val dataOfficials: MutableList<Official>,
+) : RepositoryPerson<Official>(dataOfficials) {
 
     fun createOfficial(official: Official): Official {
-        if (allIDSaved.contains(official.idOFC)) {
-            throw IllegalArgumentException(Message.ID_EXITED)
-        }
-        allIDSaved.add(official.idOFC)
         dataOfficials.add(official)
         return official
     }
 
-    fun updateOfficial(official: Official): Boolean {
+    fun updateOfficial(official: Official): Official {
         val index = dataOfficials.indexOfFirst { it.idOFC == official.idOFC }
-        return if (index != -1) {
-            dataOfficials[index] = official
-            true
+        if (index == -1) {
+            throw NoSuchElementException(Message.ID_NOT_FOUND)
         } else {
-            false
+            dataOfficials[index] = official
         }
+        return official
     }
 
     fun deleteOfficial(id: String): Boolean {

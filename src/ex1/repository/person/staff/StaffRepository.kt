@@ -1,16 +1,11 @@
 package ex1.repository.person.staff
 
-import ex1.messages.Message
 import ex1.model.person.Staff
 import ex1.repository.person.RepositoryPerson
 
 class StaffRepository(private val dataStaffs: MutableList<Staff>) : RepositoryPerson<Staff>(dataStaffs) {
 
     fun createStaff(staff: Staff): Staff {
-        if (allIDSaved.contains(staff.idOFC)) {
-            throw IllegalArgumentException(Message.ID_EXITED)
-        }
-        allIDSaved.add(staff.idOFC)
         dataStaffs.add(staff)
         return staff
     }
@@ -26,7 +21,14 @@ class StaffRepository(private val dataStaffs: MutableList<Staff>) : RepositoryPe
     }
 
     fun deleteStaff(id: String): Boolean {
-        return dataStaffs.removeIf { it.idOFC == id }
+        val staff = dataStaffs.find { it.idOFC == id }
+        return if (staff != null) {
+            dataStaffs.remove(staff)
+            allIDSaved.remove(id)
+            true
+        } else {
+            false
+        }
     }
 
     fun getAllStaff(): List<Staff> = dataStaffs

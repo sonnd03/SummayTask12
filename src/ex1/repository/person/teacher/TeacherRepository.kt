@@ -1,17 +1,11 @@
 package ex1.repository.person.teacher
 
-import ex1.messages.Message
-import ex1.model.person.Staff
 import ex1.model.person.Teacher
 import ex1.repository.person.RepositoryPerson
 
 class TeacherRepository(private val dataTeachers: MutableList<Teacher>) : RepositoryPerson<Teacher>(dataTeachers) {
 
     fun createTeacher(teacher: Teacher): Teacher {
-        if (allIDSaved.contains(teacher.idOFC)) {
-            throw IllegalArgumentException(Message.ID_EXITED)
-        }
-        allIDSaved.add(teacher.idOFC)
         dataTeachers.add(teacher)
         return teacher
     }
@@ -26,8 +20,15 @@ class TeacherRepository(private val dataTeachers: MutableList<Teacher>) : Reposi
         }
     }
 
-    fun deleteTeacher(id: String) : Boolean{
-        return dataTeachers.removeIf { it.idOFC == id}
+    fun deleteTeacher(id: String): Boolean {
+        val teacher = dataTeachers.find { it.idOFC == id }
+        return if (teacher != null) {
+            dataTeachers.remove(teacher)
+            allIDSaved.remove(id)
+            true
+        } else {
+            false
+        }
     }
 
     fun getAllTeacher(): List<Teacher> = dataTeachers

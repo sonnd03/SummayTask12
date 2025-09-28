@@ -19,7 +19,14 @@ class OfficialViewModel(
         return officialRepository.createOfficial(official)
     }
 
-    fun updateOfficial(official: Official): Boolean {
+    fun updateOfficial(): Official {
+        val officialInput = handler.updateOfficial()
+        val official = Official(
+            officialInput.id,
+            officialInput.name,
+            officialInput.year,
+            officialInput.salary
+        )
         return officialRepository.updateOfficial(official)
     }
 

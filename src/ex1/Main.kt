@@ -1,21 +1,9 @@
 package ex1
 
-import ex1.factory.PersonCreateFactory
-import ex1.messages.GetData
-import java.util.*
+import ex1.factory.SelectOption
 
 fun main() {
-    val scanner = Scanner(System.`in`)
-    val factory = PersonCreateFactory(scanner)
-    val getData = GetData()
-
-    val officials = factory.createPersons()
-
-    println("\nDanh sách Officials vừa nhập:")
-    officials.forEach { official ->
-        getData.getData(official)   // in đẹp thông tin từng Official
-    }
-
+    SelectOption.selectOption()
 
 //    val checkValid: CheckValid = Valid()
 //    val officialService = OfficialService()

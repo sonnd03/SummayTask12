@@ -5,6 +5,7 @@ enum class EnInAndOut(val message: String) {
     INPUT_STAFF("Input %s Staff: "),
     INPUT_TEACHER("Input %s Teacher: "),
     INPUT_TYPE("1: %s or 2: %s"),
+    INPUT_CHOSE("Input Id %s must %s!"),
 
     OUTPUT_OFFICIAL("Output %s is: "),
     OUTPUT_STAFF("Output %s Staff is: "),

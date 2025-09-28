@@ -1,5 +1,6 @@
 package ex1.viewModel.person
 
+import ex1.enumClass.EnInAndOut
 import ex1.model.person.Teacher
 import ex1.repository.person.teacher.TeacherRepository
 import ex1.service.handler.TeacherHandler
@@ -25,7 +26,19 @@ class TeacherViewModel(
         return teacherRepository.createTeacher(teacher)
     }
 
-    fun updateTeacher(teacher: Teacher): Boolean {
+    fun updateTeacher(): Boolean {
+        println((EnInAndOut.INPUT_CHOSE).format("Teacher", "Update"))
+        val official = officialViewModel.updateOfficial()
+        val teacherInput = handler.updateTeacher()
+        val teacher = Teacher(
+            official.idOFC,
+            official.nameOFC,
+            official.yearOfBirthOFC,
+            official.salaryOFC,
+            teacherInput.subject,
+            teacherInput.level,
+            teacherInput.exception
+        )
         return teacherRepository.updateTeacher(teacher)
     }
 

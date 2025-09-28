@@ -1,5 +1,6 @@
 package ex1.viewModel.person
 
+import ex1.enumClass.EnInAndOut
 import ex1.model.person.Official
 import ex1.model.person.Staff
 import ex1.repository.person.staff.StaffRepository
@@ -25,7 +26,18 @@ class StaffViewModel(
         return staffRepository.createStaff(staff)
     }
 
-    fun updateStaff(staff: Staff): Boolean {
+    fun updateStaff(): Boolean {
+        println((EnInAndOut.INPUT_CHOSE).format("Staff","Update"))
+        val official = officialViewModel.updateOfficial()
+        val (title, allowance) = handler.updateStaff()
+        val staff = Staff(
+            official.idOFC,
+            official.nameOFC,
+            official.yearOfBirthOFC,
+            official.salaryOFC,
+            title,
+            allowance
+        )
         return staffRepository.updateStaff(staff)
     }
 
@@ -33,7 +45,7 @@ class StaffViewModel(
         return staffRepository.deleteStaff(id)
     }
 
-    fun getAllStaff(): List<Staff> = staffRepository.getAllStaff()
+    fun getAllStaff() = staffRepository.getAllStaff()
 
     fun findByIdStaff(id: String): Official? = staffRepository.findByIdStaff(id)
 }
