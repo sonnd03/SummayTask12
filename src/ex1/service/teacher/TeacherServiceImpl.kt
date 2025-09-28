@@ -2,7 +2,7 @@ package ex1.service.teacher
 
 import ex1.messages.GetData
 import ex1.model.person.Teacher
-import ex1.repository.person.teacher.TeacherRepository
+import ex1.repository.person.TeacherRepository
 import ex1.utils.CheckValid
 import ex1.utils.Valid
 import java.util.*

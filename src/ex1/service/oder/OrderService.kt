@@ -1,19 +1,13 @@
 package ex1.service.oder
 
 import ex1.model.oders.Order
-import ex1.repository.oder.OderRepository
+import ex1.repository.oder.OrderRepository
+import ex1.viewModel.oder.OrderViewModel
 
-class OrderService(private val oderRepository: OderRepository) {
-    fun calculatePrice(order: Order): Double {
-        return order.food.priceFood + order.drink.priceDrink
-    }
-
+class OrderService(private val orderViewModel: OrderViewModel) {
     fun getAllOrders(): List<Order> {
-        return oderRepository.getAllOder()
+        return orderViewModel.getAllOrder()
     }
 
-    fun findById(id: Int): Order? {
-        return oderRepository.findById(id)
-    }
 }
 

@@ -1,13 +1,13 @@
-package ex1.repository.person.staff
+package ex1.repository.person
 
 import ex1.messages.Message
 import ex1.model.person.Staff
-import ex1.repository.person.RepositoryPerson
 
 class StaffRepository(private val dataStaffs: MutableList<Staff>) : RepositoryPerson<Staff>(dataStaffs) {
 
     fun createStaff(staff: Staff): Staff {
         dataStaffs.add(staff)
+        println(Message.CREATE_SUCCESS)
         return staff
     }
 
@@ -27,6 +27,7 @@ class StaffRepository(private val dataStaffs: MutableList<Staff>) : RepositoryPe
         return if (staff != null) {
             dataStaffs.remove(staff)
             allIDSaved.remove(id)
+            println(Message.DELETE_SUCCESS)
             true
         } else {
             false

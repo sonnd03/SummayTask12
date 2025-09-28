@@ -1,8 +1,8 @@
 package ex1.viewModel.person
 
 import ex1.model.person.Official
-import ex1.repository.person.official.OfficialRepository
-import ex1.service.handler.OfficialHandler
+import ex1.repository.person.OfficialRepository
+import ex1.service.handler.persons.OfficialHandler
 
 class OfficialViewModel(
     private val officialRepository: OfficialRepository,

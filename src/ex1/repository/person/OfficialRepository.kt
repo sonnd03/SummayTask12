@@ -1,8 +1,7 @@
-package ex1.repository.person.official
+package ex1.repository.person
 
 import ex1.messages.Message
 import ex1.model.person.Official
-import ex1.repository.person.RepositoryPerson
 
 class OfficialRepository(
     private val dataOfficials: MutableList<Official>,

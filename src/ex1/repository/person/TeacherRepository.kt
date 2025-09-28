@@ -1,13 +1,13 @@
-package ex1.repository.person.teacher
+package ex1.repository.person
 
 import ex1.messages.Message
 import ex1.model.person.Teacher
-import ex1.repository.person.RepositoryPerson
 
 class TeacherRepository(private val dataTeachers: MutableList<Teacher>) : RepositoryPerson<Teacher>(dataTeachers) {
 
     fun createTeacher(teacher: Teacher): Teacher {
         dataTeachers.add(teacher)
+        println(Message.CREATE_SUCCESS)
         return teacher
     }
 
@@ -27,6 +27,7 @@ class TeacherRepository(private val dataTeachers: MutableList<Teacher>) : Reposi
         return if (teacher != null) {
             dataTeachers.remove(teacher)
             allIDSaved.remove(id)
+            println(Message.DELETE_SUCCESS)
             true
         } else {
             false
@@ -34,7 +35,6 @@ class TeacherRepository(private val dataTeachers: MutableList<Teacher>) : Reposi
     }
 
     override fun getAll(): List<Teacher> = dataTeachers
-    fun getAllTeacher(): List<Teacher> = dataTeachers
 
     fun findBySubject(title: String?): Boolean =
         data.any { it.subject.equals(title, ignoreCase = true) }

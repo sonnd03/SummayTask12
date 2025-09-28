@@ -1,9 +1,10 @@
 package ex1.viewModel.person
 
 import ex1.enumClass.EnInAndOut
+import ex1.messages.Message
 import ex1.model.person.Teacher
-import ex1.repository.person.teacher.TeacherRepository
-import ex1.service.handler.TeacherHandler
+import ex1.repository.person.TeacherRepository
+import ex1.service.handler.persons.TeacherHandler
 
 class TeacherViewModel(
     private val teacherRepository: TeacherRepository,

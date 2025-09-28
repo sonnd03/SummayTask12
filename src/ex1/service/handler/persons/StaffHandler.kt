@@ -1,4 +1,4 @@
-package ex1.service.handler
+package ex1.service.handler.persons
 
 import ex1.enumClass.EnInAndOut
 import ex1.enumClass.EnType

@@ -8,6 +8,9 @@ object Message {
     const val FORMAT_DATE = "Format Error! Pleas return Input is format dd/MM/yyyy"
     const val ID_EXITED = "Please intern id again because id exited!"
     const val ID_NOT_FOUND = "Cannot find ID"
+    const val NOT_FIND = "Cannot find value"
     const val UPDATE_SUCCESS = "Update success!"
+    const val CREATE_SUCCESS = "Create success!"
+    const val DELETE_SUCCESS = "Delete success!"
     const val NOT_PERSON = "No persons available!\nPlease choice again!"
 }

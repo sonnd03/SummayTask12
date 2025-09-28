@@ -11,7 +11,7 @@ data class Order(
     val date: LocalDate,
     val price: Double?,
 ) : BaseOrder() {
-    constructor(id: Int, person: Official, nameFood: Food, nameDrink: Drink,date: LocalDate,) : this(
+    constructor(id: Int, person: Official, nameFood: Food, nameDrink: Drink, date: LocalDate) : this(
         id,
         person,
         nameFood,
@@ -24,5 +24,4 @@ data class Order(
         return food.priceFood + drink.priceDrink
     }
 
-    fun getNamePerson() = person.nameOFC
 }

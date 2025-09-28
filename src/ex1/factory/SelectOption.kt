@@ -1,6 +1,5 @@
 package ex1.factory
 
-import ex1.messages.Message
 import java.util.*
 
 object SelectOption {
@@ -17,7 +16,10 @@ object SelectOption {
                 |2. Delete Persons
                 |3. Update Persons
                 |4. Service Persons
-                |5. Exit
+                |5. Create Order
+                |6. Fake Data
+                |7. Get All Order
+                |8. Exit
                 """.trimMargin()
             )
             print("Enter your choice: ")
@@ -34,7 +36,15 @@ object SelectOption {
                     subMenu(scanner, factory)
                 }
 
-                5 -> {
+                5 -> if (!factory.ensureHasPersons()) {
+                    continue
+                } else {
+                    factory.createOrder()
+                }
+
+                6 -> factory.createOrderRandom()
+                7 -> factory.getAllOrders()
+                8 -> {
                     println("Exiting...")
                     break
                 }

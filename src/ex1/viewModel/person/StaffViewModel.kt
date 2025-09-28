@@ -3,8 +3,8 @@ package ex1.viewModel.person
 import ex1.enumClass.EnInAndOut
 import ex1.model.person.Official
 import ex1.model.person.Staff
-import ex1.repository.person.staff.StaffRepository
-import ex1.service.handler.StaffHandler
+import ex1.repository.person.StaffRepository
+import ex1.service.handler.persons.StaffHandler
 
 class StaffViewModel(
     private val staffRepository: StaffRepository,

@@ -33,5 +33,4 @@ class GetData {
         val listTeacher = official.filterIsInstance<Teacher>().toMutableList()
         return Pair(listStaff, listTeacher)
     }
-
 }

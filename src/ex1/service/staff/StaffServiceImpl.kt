@@ -2,7 +2,7 @@ package ex1.service.staff
 
 import ex1.messages.GetData
 import ex1.model.person.Staff
-import ex1.repository.person.staff.StaffRepository
+import ex1.repository.person.StaffRepository
 import ex1.utils.CheckValid
 import ex1.utils.Valid
 import java.time.LocalDate
